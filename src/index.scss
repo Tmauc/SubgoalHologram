@@ -1,0 +1,42 @@
+@import "assets/styles/fonts.scss";
+@import "assets/styles/colors.scss";
+@import "assets/styles/cssReset.scss";
+
+// Mixin de média-queries
+@mixin responsive-tablet {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+// Mixin de transitions
+@mixin transition-ease-in-out {
+  transition: all 0.3s ease-in-out;
+}
+
+// Mixin de polices de caractères
+@mixin TTFirsNeueTrl {
+  font-family: "TT Firs Neue Trl";
+}
+
+// Appliquer les styles aux éléments de l'application
+body {
+  background-color: transparent;
+  color: $text-white-color;
+  overflow: hidden;
+  @include TTFirsNeueTrl;
+
+  .button {
+    @include transition-ease-in-out;
+
+    &:hover {
+      background-color: $tertiary-color;
+    }
+  }
+
+  @include responsive-tablet {
+    .tablet-only {
+      display: block;
+    }
+  }
+}

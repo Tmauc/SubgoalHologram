@@ -1,0 +1,10 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{HTTPS} =off
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+) [NC]
+RewriteRule ^ https://www.%1%{REQUEST_URI} [R=302,L,NE]
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www\.%{HTTP_HOST}%{REQUEST_URI} [R=302,L,NE]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.html [END]

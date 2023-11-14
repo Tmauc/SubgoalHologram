@@ -10,12 +10,13 @@ function Hologram() {
   const [accessToken, setAccessToken] = useState();
   const [totalSub, setTotalSub] = useState(0);
   const [repeater, setRepeater] = useState(0);
-  const [subGoal, setSubGoal] = useState(0);
+  const [subGoal, setSubGoal] = useState(sessionStorage.getItem('storageSubGoal') || 0);
 
   const percentHologram = totalSub * 80 / subGoal;
 
   const handleSubGoal = (value) => {
     setSubGoal(value);
+    sessionStorage.setItem('storageSubGoal', value);
   }
 
   const onClickOnTwitch = () => {

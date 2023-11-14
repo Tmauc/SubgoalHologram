@@ -16,7 +16,7 @@ npm start
 
 # CONFIG
 
-Crée un fichier config.json dans /src et remplisser le avec ce template :
+Create a config.json file in /src and fill it with this template:
 
 ```bash
 {
